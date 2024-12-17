@@ -4,6 +4,7 @@ import { ApiResponse } from './../utils/ApiResponse.js';
 import { User } from './../models/user.model.js';
 import { uploadOnCloudinary } from './../utils/cloudinary.js';
 import jwt from 'jsonwebtoken';
+import mongoose from 'mongoose';
 
 const generateAccessAndRefreshTokens = async (userId) => {
   try {
@@ -290,7 +291,7 @@ const updateUserAvatar = asyncHandler(async (req, res) => {
       },
     },
     { new: true },
-  ).select('-password');
+  ).select('-password -refreshToken');
 
   return res
     .status(200)
@@ -319,7 +320,7 @@ const updateUserCoverImage = asyncHandler(async (req, res) => {
       },
     },
     { new: true },
-  ).select('-password');
+  ).select('-password -refreshToken');
 
   return res
     .status(200)
@@ -438,9 +439,11 @@ const getWatchHistory = asyncHandler(async (req, res) => {
   return res
     .status(200)
     .json(
-      new ApiResponse(200),
-      user[0].watchHistory,
-      'Watch history fetched successfully',
+      new ApiResponse(
+        200,
+        user[0].watchHistory,
+        'Watch history fetched successfully',
+      ),
     );
 });
 
