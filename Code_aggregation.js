@@ -229,3 +229,25 @@
 //     }
 //   }
 // ]
+
+// --------------------lookup------------------------
+[
+  {
+    $lookup: {
+      from: 'agauthors',
+      localField: 'author_id',
+      foreignField: '_id',
+      as: 'author_details',
+    },
+  },
+  {
+    $addFields: {
+      author_details: {
+        // sol1
+        // $first:"$author_details"
+        // sol2
+        $arrayElemAt: ['$author_details', 0],
+      },
+    },
+  },
+];
