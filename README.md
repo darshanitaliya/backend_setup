@@ -32,5 +32,16 @@ This is the backend service for **Basic Setup of Backend**, a foundational proje
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/yourusername/backend-project.git
-   cd backend-project
+   git clone https://github.com/darshanitaliya/backend_setup
+   cd backend_setup
+
+2. Install dependencies:
+    ```bash
+    npm install
+
+3. Set up environment variables:
+    Create a .env file in the root directory and add variables
+
+4. Start the development server:
+    ```bash 
+    npm run dev
