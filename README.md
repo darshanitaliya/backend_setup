@@ -40,8 +40,30 @@ This is the backend service for **Basic Setup of Backend**, a foundational proje
     npm install
 
 3. Set up environment variables:
-    Create a .env file in the root directory and add variables
+    Create a .env file in the root directory and add variables.
 
 4. Start the development server:
     ```bash 
     npm run dev
+
+
+## Features
+
+- **Basic Authentication:**  
+  Secure login and registration using JSON Web Tokens (JWT) to ensure user identity and data protection.
+
+- **File Upload Support:**  
+  Supports file uploads, either locally or directly to **Cloudinary**, enabling efficient media management.
+
+- **MongoDB Integration:**  
+  Provides CRUD (Create, Read, Update, Delete) operations using **Mongoose**, a powerful ODM library for MongoDB.
+
+- **Middleware Integration:**  
+  Seamlessly handles essential backend operations with middleware like:
+  - **cookie-parser**: For parsing cookies.
+  - **CORS**: To manage cross-origin resource sharing.
+  - **dotenv**: For managing environment variables.
+
+- **Scalable Structure:**  
+  Designed with scalability in mind, making it easy to expand with additional routes, controllers, and services as the project grows.
+
